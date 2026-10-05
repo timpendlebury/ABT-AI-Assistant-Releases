@@ -14,9 +14,9 @@ latest stable release below.
 
 ## Requirements
 
-Version **0.16.0** adds direct Gemini, Siemens SDC Claude/Gemini family and
-endpoint choices, clearer provider settings, ChatGPT sign-in recovery and
-reported token usage. See the [release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.0).
+Version **0.16.1** fixes Siemens SDC model discovery and separates its public
+catalog from API-key verification. Provider settings can collapse while keeping
+their provider, model and status visible. See the [release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.1).
 Gemini client behavior is covered by offline tests; live account access,
 gateway compatibility and ABT engineering acceptance require separate
 verification with authorized accounts.
