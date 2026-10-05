@@ -3,8 +3,8 @@
 [Download the latest Windows installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest)
 
 This repository distributes Windows installers and application updates for ABT
-AI Assistant. The source repository is private. An installer becomes available
-here after the first qualified release is published.
+AI Assistant. The source repository is private. Download the Setup EXE from the
+latest stable release below.
 
 > ABT AI Assistant is an independently developed third-party tool. It is not an
 > official Siemens product and is not sponsored, endorsed or supported by
@@ -14,18 +14,35 @@ here after the first qualified release is published.
 
 ## Requirements
 
+Version **0.16.0** adds direct Gemini, Siemens SDC Claude/Gemini family and
+endpoint choices, clearer provider settings, ChatGPT sign-in recovery and
+reported token usage. See the [release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.0).
+Gemini client behavior is covered by offline tests; live account access,
+gateway compatibility and ABT engineering acceptance require separate
+verification with authorized accounts.
+
 - Windows x64 supported by .NET 10, with permission to install a per-user application.
 - A separately installed and licensed Siemens ABT Site installation with its
   local ABT Openness service available. Siemens software and documentation are
   not included.
 - The prerequisites for the model provider you select. Codex mode requires a
-  separately installed qualified Codex runtime (`0.154.0-alpha.6.2` or `0.153.4`)
-  and ChatGPT sign-in. Claude API and Siemens SDC Claude API modes use their
-  separate provider credentials. Native Claude Code and OpenClaw are optional
-  external clients installed and configured by the user.
+  separately installed qualified Codex runtime (`0.160.0`, `0.154.0-alpha.6.2` or `0.153.4`)
+  and ChatGPT sign-in. Direct Claude/Gemini APIs and Siemens SDC Claude/Gemini use
+  separate API credentials and do not require Codex or Claude Code. Native
+  Claude Code and OpenClaw are optional external clients installed and configured
+  by the user. Siemens SDC offers global/European endpoint choices; model access remains subject to company allocation and policy.
 
 The installer includes the .NET 10 runtime. You do not need a GitHub account,
 Git, the .NET SDK or Visual Studio to download and use it.
+
+Use **Provider setup & billing** in the application for its packaged guide to
+all seven account routes, required installations, sign-in, model refresh,
+credential storage and common failures. ChatGPT uses the selected plan's Codex
+allowance; direct Claude/Gemini APIs use separate API accounts; Siemens SDC uses
+company access and allocation. OpenClaw's model account is configured upstream.
+**Open Claude Code (separate app)** opens the official client's own conversation.
+The application does not display a verified monetary balance or switch accounts
+automatically when access or quota fails.
 
 ## Install and update
 
