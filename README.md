@@ -14,11 +14,23 @@ latest stable release below.
 
 ## Requirements
 
-Version **0.16.4** restores **Siemens SDC** to Claude-only connections, retaining
-the global/European gateway choice and existing Claude keys. Direct Google
-**Gemini API** remains available separately. An old SDC Gemini selection opens
-disconnected and requires an explicit supported connection; its saved keys and
-preferences are preserved without reuse.
+Version **0.16.5** keeps the assistant's ABT project status and connected project
+name visible in the main conversation header, including with the sidebar hidden.
+**Connect** changes to **Disconnect** after a confirmed attachment; **Refresh**
+checks its status. These actions use the existing native session controls without
+an AI prompt. Disconnect leaves the project open in ABT Site. Native events and
+idle checks every 15 seconds update the display; unconfirmed or lost connections
+never reconnect automatically.
+
+**Start a workflow** now sits above the conversation, separate from provider
+settings and updates. Its six suggestions fill an editable draft, preserve any
+existing draft and wait for you to send. They collapse after the first message
+and can be reopened; short windows keep the composer visible.
+
+**Siemens SDC** remains Claude-only, retaining the global/European gateway choice
+and existing Claude keys. Direct Google **Gemini API** remains available separately.
+An old SDC Gemini selection opens disconnected and requires an explicit supported
+connection; its saved keys and preferences are preserved without reuse.
 
 Signed Windows distribution uses T. Pendlebury's existing
 self-signed code-signing certificate, introduced in 0.16.3. Read [certificate verification and opt-in
@@ -28,13 +40,14 @@ acceptance. The guarded automatic updates added in 0.16.2 remain: **Restart and 
 available when this assistant has disconnected its ABT project and confirmed
 that its tasks and cleanup have completed. The startup barrier prevents new
 assistant/companion ABT work during installation. See the
-[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.4).
+[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.5).
 Siemens SDC model discovery remains separate from API-key verification, and
 provider settings can collapse while keeping their provider, model and status
 visible.
-Gemini client behavior is covered by offline tests; live account access,
-gateway compatibility and ABT engineering acceptance require separate
-verification with authorized accounts.
+Connection controls, workflow suggestions and Gemini client behavior are covered
+by offline tests. Live account access, gateway compatibility, live ABT connection
+validation and ABT engineering acceptance require separate verification with
+authorized accounts.
 
 - Windows x64 supported by .NET 10, with permission to install a per-user application.
 - A separately installed and licensed Siemens ABT Site installation with its
