@@ -14,11 +14,15 @@ latest stable release below.
 
 ## Requirements
 
-Version **0.16.2** adds guarded automatic updates. **Restart and Update** becomes
+Version **0.16.3** adds signed Windows distribution using T. Pendlebury's
+self-signed code-signing certificate. Read [certificate verification and opt-in
+trust](CODE_SIGNING.md); independently confirm its SHA-256 fingerprint before
+choosing to import the public .cer. Signing does not guarantee Windows policy
+acceptance. The guarded automatic updates added in 0.16.2 remain: **Restart and Update** becomes
 available when this assistant has disconnected its ABT project and confirmed
 that its tasks and cleanup have completed. The startup barrier prevents new
 assistant/companion ABT work during installation. See the
-[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.2).
+[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.3).
 Siemens SDC model discovery remains separate from API-key verification, and
 provider settings can collapse while keeping their provider, model and status
 visible.
@@ -51,14 +55,17 @@ automatically when access or quota fails.
 
 ## Install and update
 
-1. Open the latest release and download `ABTAIAssistant-stable-Setup.exe`.
+1. Open the latest release and download `ABTAIAssistant-stable-Setup.exe` and the
+   public `T-Pendlebury-code-signing.cer`. Follow [signature verification](CODE_SIGNING.md)
+   and make your own trust choice before running the signed installer.
 2. Finish any ABT work and close existing assistant sessions and companion
    windows normally, then run the installer and start ABT AI Assistant.
 3. Configure the local ABT connection and selected provider in the application.
 
-**Upgrading from 0.16.1 or earlier:** use the Setup EXE once to install 0.16.2's
-startup barrier and dedicated update helper. Older installations cannot acquire
-these safeguards through their disabled restart action.
+**Upgrading from unsigned 0.16.2 or earlier:** use the signed Setup EXE once.
+The unsigned native updater cannot pass its original byte-equality check against
+a newly signed native updater. Earlier installations also need the startup
+barrier and dedicated helper. Unsupported transitions offer the installer.
 
 For subsequent guarded installations, open **About & updates** and choose
 **Download update**. **Later** keeps the package staged. Disconnect this
@@ -91,10 +98,12 @@ Do not run a repair or reinstall while ABT operations or companion processes
 are active; close them cleanly first. Preserve project backups and user data
 before any recovery work.
 
-Initial installers may be unsigned. Windows may show a SmartScreen warning;
-review the download origin and your organization's policy before running the
-installer. Do not disable Windows protection or install an untrusted
-certificate to suppress warnings.
+Historical installers are unsigned. Current signed installers use the exact
+public identity in [CODE_SIGNING.md](CODE_SIGNING.md). Only the public .cer and
+fingerprint are distributed; users never need a PFX, private key or password.
+SmartScreen may still warn, and Smart App Control or enterprise policy may block
+self-signed applications. Respect your organization's policy and do not disable
+Windows protections.
 
 Third-party package metadata and available license texts are included under
 `legal/` in the installed application. Report issues through this repository
