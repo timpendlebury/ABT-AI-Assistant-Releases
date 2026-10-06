@@ -14,7 +14,19 @@ latest stable release below.
 
 ## Requirements
 
-Version **0.16.5** keeps the assistant's ABT project status and connected project
+Version **0.16.6** makes failed **Connect** attempts show a persistent explanation,
+including when the hosted Openness endpoint is unavailable. Hosted discovery
+distinguishes missing startup discovery files from endpoint validation failures.
+The hosted Openness service still needs to be configured and running in ABT Site;
+the assistant does not start Siemens services or restart ABT Site automatically.
+
+Claude API, Siemens SDC Claude, Gemini API and OpenClaw setup restore the masked
+saved credential and **Remember** choice when reopened. An unchanged credential
+keeps its chosen storage mode. Providers and connection settings keep separate
+credentials; a different endpoint or OpenClaw agent/authentication method loads
+only its own matching credential.
+
+The assistant keeps the ABT project status and connected project
 name visible in the main conversation header, including with the sidebar hidden.
 **Connect** changes to **Disconnect** after a confirmed attachment; **Refresh**
 checks its status. These actions use the existing native session controls without
@@ -40,7 +52,7 @@ acceptance. The guarded automatic updates added in 0.16.2 remain: **Restart and 
 available when this assistant has disconnected its ABT project and confirmed
 that its tasks and cleanup have completed. The startup barrier prevents new
 assistant/companion ABT work during installation. See the
-[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.5).
+[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.6).
 Siemens SDC model discovery remains separate from API-key verification, and
 provider settings can collapse while keeping their provider, model and status
 visible.
