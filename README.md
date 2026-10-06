@@ -14,9 +14,14 @@ latest stable release below.
 
 ## Requirements
 
-Version **0.16.1** fixes Siemens SDC model discovery and separates its public
-catalog from API-key verification. Provider settings can collapse while keeping
-their provider, model and status visible. See the [release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.1).
+Version **0.16.2** adds guarded automatic updates. **Restart and Update** becomes
+available when this assistant has disconnected its ABT project and confirmed
+that its tasks and cleanup have completed. The startup barrier prevents new
+assistant/companion ABT work during installation. See the
+[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.2).
+Siemens SDC model discovery remains separate from API-key verification, and
+provider settings can collapse while keeping their provider, model and status
+visible.
 Gemini client behavior is covered by offline tests; live account access,
 gateway compatibility and ABT engineering acceptance require separate
 verification with authorized accounts.
@@ -47,21 +52,33 @@ automatically when access or quota fails.
 ## Install and update
 
 1. Open the latest release and download `ABTAIAssistant-stable-Setup.exe`.
-2. Run the installer and start ABT AI Assistant.
+2. Finish any ABT work and close existing assistant sessions and companion
+   windows normally, then run the installer and start ABT AI Assistant.
 3. Configure the local ABT connection and selected provider in the application.
 
-The application checks this public repository for stable updates and can
-download a package for later installation. To install an update, wait for ABT
-operations to finish, close all assistant sessions and companion processes
-cleanly, then run the latest Setup EXE from this repository. Close any external
-Claude Code or OpenClaw session using the assistant's ABT connection first.
+**Upgrading from 0.16.1 or earlier:** use the Setup EXE once to install 0.16.2's
+startup barrier and dedicated update helper. Older installations cannot acquire
+these safeguards through their disabled restart action.
 
-Use the installer link in the application's update area. In-app restart and
-update is currently unavailable because the current update engine can
-[forcibly close running processes](https://github.com/velopack/velopack/blob/1.2.161/src/bins/src/shared/util_windows.rs#L81).
-It remains unavailable until a method that guarantees graceful shutdown is
-qualified. Keep your existing project backups and review proposed engineering
-changes before approving them.
+For subsequent guarded installations, open **About & updates** and choose
+**Download update**. **Later** keeps the package staged. Disconnect this
+assistant from its ABT project, let all tasks and readback/cleanup finish, then
+choose **Restart and Update** when its readiness message allows it. The action
+rechecks readiness, blocks new work, waits for normal application exit and
+applies the verified update. Other assistant windows and ABT companions,
+including those used by external Claude Code or OpenClaw, must close normally.
+Readiness concerns the assistant's connection; it does not require every project
+in ABT Site to close. Detaching leaves ABT Site's project open.
+
+The native updater still has
+[force-stop behavior](https://github.com/velopack/velopack/blob/1.2.161/src/bins/src/shared/util_windows.rs#L81).
+On 6 October 2026 the owner approved guarded updates with possible termination
+only of an empty process blocked before startup; active assistant/ABT work must
+finish and exit naturally. If guards/helpers are unavailable, use **Download
+installer ↗** or the Setup EXE from **Release notes ↗**, after finishing work and
+closing all assistant sessions and companions normally. Unconfirmed cleanup or
+an update failure blocks automatic installation. Keep project backups and
+review proposed engineering changes before approving them.
 
 Settings and credentials remain in their established per-user storage across
 application updates. Updates do not roll back ABT project changes.
