@@ -1,6 +1,6 @@
 # Verify and optionally trust T. Pendlebury's signed installer
 
-ABT AI Assistant 0.16.3 uses a self-signed code-signing certificate. The
+ABT AI Assistant versions 0.16.3 and later use a self-signed code-signing certificate. The
 publisher identity is asserted by its owner, not verified by a public
 certificate authority. You decide whether to trust it. Corporate PCs may
 require IT approval; trust for one account does not apply to every account or
