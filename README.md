@@ -14,7 +14,14 @@ latest stable release below.
 
 ## Requirements
 
-Version **0.16.7** gives every controller creation its own 120-second default
+Version **0.16.8** adds support for the separately installed **Codex CLI 0.160.1**,
+restoring ChatGPT/Codex connection after that runtime update. Previous qualified
+versions remain supported. An unsupported-version message now identifies the
+recognized installed runtime; failure to check its version has a separate safe
+message. ChatGPT sign-in and credential storage remain unchanged. The qualified
+signed **0.16.8** release is published as the latest public stable version.
+
+Controller creation retains its own 120-second default
 timeout, allowing ABT Site more time to create each controller in an approved
 workflow. A larger configured timeout is respected. After a controller is
 confirmed and checked, the workflow automatically proceeds to the next
@@ -64,14 +71,16 @@ acceptance. The guarded automatic updates added in 0.16.2 remain: **Restart and 
 available when this assistant has disconnected its ABT project and confirmed
 that its tasks and cleanup have completed. The startup barrier prevents new
 assistant/companion ABT work during installation. See the
-[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.7).
+[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.8).
 Siemens SDC model discovery remains separate from API-key verification, and
 provider settings can collapse while keeping their provider, model and status
 visible.
 Controller deadlines, five-controller workflows and recovery after a lost reply
 are covered by offline tests, alongside connection controls, workflow suggestions
-and Gemini client behavior. The regression run passed 1,450 tests, with three
-skipped. Live controller creation, account access, gateway compatibility, live ABT
+and Gemini client behavior. The local regression run passed 1,469 tests, with
+three existing opt-in skips. Codex **0.160.1** passed the unchanged offline runtime
+qualification using a fake model, without a real account or OpenAI/ABT request.
+Live controller creation, account access, gateway compatibility, live ABT
 connection validation and ABT engineering acceptance require separate
 verification with authorized accounts.
 
@@ -80,8 +89,11 @@ verification with authorized accounts.
   local ABT Openness service available. Siemens software and documentation are
   not included.
 - The prerequisites for the model provider you select. Codex mode requires a
-  separately installed qualified Codex runtime (`0.160.0`, `0.154.0-alpha.6.2` or `0.153.4`)
-  and ChatGPT sign-in. Direct Claude/Gemini APIs and Siemens SDC Claude use
+  separately installed qualified Codex runtime (`0.160.1`, `0.160.0`,
+  `0.154.0-alpha.6.2` or `0.153.4` in **0.16.8** and later) and ChatGPT sign-in.
+  Builds **0.16.7** and earlier retain their previous exact runtime allow-lists
+  and reject **0.160.1**; update the assistant to **0.16.8** or later to use it.
+  Direct Claude/Gemini APIs and Siemens SDC Claude use
   separate API credentials and do not require Codex or Claude Code. Native
   Claude Code and OpenClaw are optional external clients installed and configured
   by the user. Siemens SDC offers global/European endpoint choices; model access remains subject to company allocation and policy.
