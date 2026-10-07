@@ -10,12 +10,34 @@ latest stable release below.
 
 ## Requirements
 
-Version **0.16.8** adds support for the separately installed **Codex CLI 0.160.1**,
+Version **0.16.9** brings action approvals into a blocking review panel inside
+the desktop window, verifies saved Siemens SDC model access at startup, and
+shares the independent third-party disclaimer across the application and release
+materials. The qualified signed **0.16.9** release is published as the latest
+public stable version.
+
+Connection confirmations, prepared engineering changes, physical-I/O imports
+and Excel/ABT reconciliation appear inside the assistant window. Review the
+complete details, tick the review checkbox when required, then choose
+**Accept action** or **Decline**. The window draws attention to pending approval
+and blocks its other controls until the decision finishes. Cancellation, expiry,
+closing the assistant or a missing approval interface never grant approval.
+Exact-plan validation, device locks and readback remain enforced. Standalone
+MCP clients retain their native confirmation dialogs.
+
+When Siemens SDC is your saved provider, startup restores its remembered key
+and tests the exact saved model at the saved gateway. **Connecting…** changes
+to **Connected** only after a valid response. This isolated eight-token access
+test can consume company quota; it sends no conversation, attachments or ABT
+tools. Failed checks never switch providers, gateways or models. Missing
+credentials or an unavailable saved model require an explicit connection or
+model choice.
+
+Version **0.16.8** added support for the separately installed **Codex CLI 0.160.1**,
 restoring ChatGPT/Codex connection after that runtime update. Previous qualified
 versions remain supported. An unsupported-version message now identifies the
 recognized installed runtime; failure to check its version has a separate safe
-message. ChatGPT sign-in and credential storage remain unchanged. The qualified
-signed **0.16.8** release is published as the latest public stable version.
+message. ChatGPT sign-in and credential storage remain unchanged.
 
 Controller creation retains its own 120-second default
 timeout, allowing ABT Site more time to create each controller in an approved
@@ -67,15 +89,19 @@ acceptance. The guarded automatic updates added in 0.16.2 remain: **Restart and 
 available when this assistant has disconnected its ABT project and confirmed
 that its tasks and cleanup have completed. The startup barrier prevents new
 assistant/companion ABT work during installation. See the
-[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.8).
+[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.9).
 Siemens SDC model discovery remains separate from API-key verification, and
 provider settings can collapse while keeping their provider, model and status
 visible.
 Controller deadlines, five-controller workflows and recovery after a lost reply
 are covered by offline tests, alongside connection controls, workflow suggestions
-and Gemini client behavior. The local regression run passed 1,469 tests, with
-three existing opt-in skips. Codex **0.160.1** passed the unchanged offline runtime
-qualification using a fake model, without a real account or OpenAI/ABT request.
+and Gemini client behavior. Offline regression also covers approval rendering
+and control bindings, explicit decisions, cancellation and expiry, exact
+request identity, provider/model isolation, saved credential scopes and malformed
+startup-verification replies. The local regression run passed 1,555 tests, with
+three existing opt-in skips. Codex **0.160.1** passed the unchanged offline
+runtime qualification using a fake model, without a real account or OpenAI/ABT
+request.
 Live controller creation, account access, gateway compatibility, live ABT
 connection validation and ABT engineering acceptance require separate
 verification with authorized accounts.
