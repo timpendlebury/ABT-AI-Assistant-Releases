@@ -14,7 +14,19 @@ latest stable release below.
 
 ## Requirements
 
-Version **0.16.6** makes failed **Connect** attempts show a persistent explanation,
+Version **0.16.7** gives every controller creation its own 120-second default
+timeout, allowing ABT Site more time to create each controller in an approved
+workflow. A larger configured timeout is respected. After a controller is
+confirmed and checked, the workflow automatically proceeds to the next
+controller covered by the same approval. Device locks, approval and readback
+checks remain enforced.
+
+If creation or verification fails, the workflow stops. A timeout or lost reply
+can leave a controller created in ABT Site without confirmed completion in the
+assistant. It never retries that creation automatically: inspect the current
+controllers and prepare a new plan for only those still missing before retrying.
+
+Failed **Connect** attempts show a persistent explanation,
 including when the hosted Openness endpoint is unavailable. Hosted discovery
 distinguishes missing startup discovery files from endpoint validation failures.
 The hosted Openness service still needs to be configured and running in ABT Site;
@@ -52,14 +64,16 @@ acceptance. The guarded automatic updates added in 0.16.2 remain: **Restart and 
 available when this assistant has disconnected its ABT project and confirmed
 that its tasks and cleanup have completed. The startup barrier prevents new
 assistant/companion ABT work during installation. See the
-[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.6).
+[release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.7).
 Siemens SDC model discovery remains separate from API-key verification, and
 provider settings can collapse while keeping their provider, model and status
 visible.
-Connection controls, workflow suggestions and Gemini client behavior are covered
-by offline tests. Live account access, gateway compatibility, live ABT connection
-validation and ABT engineering acceptance require separate verification with
-authorized accounts.
+Controller deadlines, five-controller workflows and recovery after a lost reply
+are covered by offline tests, alongside connection controls, workflow suggestions
+and Gemini client behavior. The regression run passed 1,450 tests, with three
+skipped. Live controller creation, account access, gateway compatibility, live ABT
+connection validation and ABT engineering acceptance require separate
+verification with authorized accounts.
 
 - Windows x64 supported by .NET 10, with permission to install a per-user application.
 - A separately installed and licensed Siemens ABT Site installation with its
