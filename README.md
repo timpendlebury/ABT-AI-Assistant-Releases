@@ -4,6 +4,8 @@ A Windows desktop assistant for Siemens ABT engineering. Explore project data, p
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
+> ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
+
 ## Features
 
 - Inspect controllers, application structures, parameters and properties, and search local ABT reference material.
@@ -68,7 +70,3 @@ If readiness is unconfirmed or guards/helpers are unavailable, use **Download in
 - **Windows trust warnings:** follow [CODE_SIGNING.md](CODE_SIGNING.md). SmartScreen or company policy may still block a self-signed application; keep Windows protections enabled.
 - **Download problems:** continue using the installed version and retry later, or download Setup from the latest release. Finish active work before repair or reinstall.
 - **Issues:** [report a problem](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/issues) without customer projects, credentials, private logs or Siemens reference material. Third-party notices are included under `legal/` in the installed application.
-
-## Disclaimer
-
-ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. Read the full [disclaimer](DISCLAIMER.md) before use, keep project backups and independently validate proposed changes.
