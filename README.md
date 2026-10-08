@@ -81,8 +81,8 @@ and existing Claude keys. Direct Google **Gemini API** remains available separat
 An old SDC Gemini selection opens disconnected and requires an explicit supported
 connection; its saved keys and preferences are preserved without reuse.
 
-Signed Windows distribution uses T. Pendlebury's existing
-self-signed code-signing certificate, introduced in 0.16.3. Read [certificate verification and opt-in
+Signed Windows distribution uses a self-signed code-signing certificate,
+introduced in 0.16.3. Read [certificate verification and opt-in
 trust](CODE_SIGNING.md); independently confirm its SHA-256 fingerprint before
 choosing to import the public .cer. Signing does not guarantee Windows policy
 acceptance. The guarded automatic updates added in 0.16.2 remain: **Restart and Update** becomes
