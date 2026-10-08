@@ -1,17 +1,40 @@
 # ABT AI Assistant
 
-A Windows desktop assistant for Siemens ABT engineering. Explore project data, prepare reviewed changes, import physical-I/O schedules and compare Excel workbooks with ABT.
+A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and engineer the project open in ABT Site. Ask questions in plain language, prepare project changes, import physical-I/O schedules and compare Excel workbooks with ABT.
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
-## Features
+## ABT Openness capabilities
 
-- Inspect controllers, application structures, parameters and properties, and search local ABT reference material.
-- Prepare engineering changes with explicit approval, device locking and readback verification.
-- Review supported Excel physical-I/O imports and reconcile workbook data with an existing ABT project.
-- Chat in the desktop or use the local MCP integration with a compatible AI client.
+The assistant connects to your open project through the **local ABT Openness service**. It reads actual engineering data and turns natural-language requests into reviewable plans for supported ABT operations.
+
+| Area | Capabilities |
+|---|---|
+| **Project exploration** | List controllers, inspect models and application structures, and search datapoints, domain parameters and building-automation (BA) properties by name, hierarchy, type or current value. |
+| **Controllers and templates** | Discover supported controller types and existing device templates; prepare controller creation, batch creation, renaming, template-based instances, supported SVS upgrades and explicit deletion where enabled. |
+| **Hierarchy and application structure** | Explore buildings, floors and rooms; prepare supported hierarchy changes and create or organise Plants, Coordination, Equipment and Folders. |
+| **TX-I/O engineering** | Inspect rails, modules and point assignments; discover compatible modules and library points; prepare rails, modules, datapoints and channel assignment changes. |
+| **Modbus engineering** | Inspect available libraries and serial ports; prepare supported TCP/RTU networks, devices, library-device instances and datapoints using explicit communication and register settings. |
+| **Application libraries** | Find controller-compatible applications, inspect configurations, and prepare application-configuration creation, option/variant selections and user-designation assignments. |
+| **CFC programming** | Inspect programs, charts, function blocks, pins and interconnections; prepare supported chart, block, pin-value and connection edits. |
+| **Bulk project changes** | Select exact objects across controllers and prepare approved naming, description or allowed configuration-value changes, including text replacements and numeric transforms. |
+| **Excel physical-I/O import** | Review supported points schedules, resolve controller/module/library mappings, and prepare controller, structure, point and physical-I/O assignments for an approved import. |
+| **Excel and ABT reconciliation** | Compare an existing workbook with ABT, review mismatches and choose the source for supported name, description and I/O assignment updates. Excel output is a revised copy. |
+| **ABT help and engineering guidance** | Search locally installed ABT and Programming Library Help, plus operator-imported references; explain documented functions and relate application recommendations to live controller-compatible libraries. |
+
+**You review the action before it changes the project.** Preparation is read-only; applying a plan requires explicit approval and state checks, followed by verification of the result. Available actions depend on your ABT version, enabled services and local configuration; implemented tools do not establish live compatibility with every installation.
+
+Project creation remains in ABT Site. Hardware commissioning, controller downloads and runtime commands are outside the assistant's supported tools. Use the desktop chat or connect a compatible AI client through the local MCP integration.
+
+### Example requests
+
+- “Show the controllers in this project and their I/O module layouts.”
+- “Prepare a consistent naming update for the points I select, and show the plan before applying it.”
+- “Review this points schedule and show the proposed controllers, modules and point assignments before making changes.”
+- “Compare this workbook with ABT and show which names, descriptions or I/O assignments differ.”
+- “Show compatible library applications for this controller and explain which match my AHU requirements.”
 
 ## Requirements
 
@@ -51,7 +74,7 @@ Use **Provider setup & billing** in the application for detailed instructions. P
 2. Choose **Connect** in the assistant, confirm the project and enter ABT credentials in the local sign-in dialog.
 3. Use a workflow suggestion or type a request. Review the proposed action, tick the review checkbox when required, then choose **Accept action** or **Decline**.
 
-Engineering changes require explicit approval, verified device locks and readback. Cancellation, expiry and closing the assistant never approve an action. **Disconnect** releases the assistant's connection while leaving the project open in ABT Site.
+Engineering changes require explicit approval and readback checks, with verified device locks for device-scoped operations. Cancellation, expiry and closing the assistant never approve an action. **Disconnect** releases the assistant's connection while leaving the project open in ABT Site.
 
 A timeout or lost reply may leave a partially completed change. Inspect the current ABT state before preparing further work; controller creation is never retried automatically after an uncertain result. Live account access, gateway compatibility and engineering changes require verification in your authorised environment.
 
