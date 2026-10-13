@@ -22,7 +22,7 @@ The assistant connects to your open project through the **local ABT Openness ser
 | **Bulk project changes** | Select exact objects across controllers and prepare approved naming, description or allowed configuration-value changes, including text replacements and numeric transforms. |
 | **Excel physical-I/O import** | Review supported points schedules, resolve controller/module/library mappings, and prepare controller, structure, point and physical-I/O assignments for an approved import. |
 | **Excel and ABT reconciliation** | Compare an existing workbook with ABT, review mismatches and choose the source for supported name, description and I/O assignment updates. Excel output is a revised copy. |
-| **ABT help and engineering guidance** | Search locally installed ABT and Programming Library Help, plus operator-imported references; explain documented functions and relate application recommendations to live controller-compatible libraries. |
+| **ABT help and engineering guidance** | Search locally installed ABT and Programming Library Help, plus prepared local reference packages; explain documented functions and relate application recommendations to live controller-compatible libraries. |
 
 **You review the action before it changes the project.** Preparation is read-only; applying a plan requires explicit approval and state checks, followed by verification of the result. Available actions depend on your ABT version, enabled services and local configuration; implemented tools do not establish live compatibility with every installation.
 
@@ -35,6 +35,16 @@ Project creation remains in ABT Site. Hardware commissioning, controller downloa
 - “Review this points schedule and show the proposed controllers, modules and point assignments before making changes.”
 - “Compare this workbook with ABT and show which names, descriptions or I/O assignments differ.”
 - “Show compatible library applications for this controller and explain which match my AHU requirements.”
+
+## Local reference knowledge
+
+Version **0.16.10** expands read-only lookup across the prepared local PDF and Programming Library Help collection. Results retain document editions, PDF page numbers and linked topics so answers can cite their reference evidence. English, German and French can be selected explicitly.
+
+Documentation import, extraction and package writing belong to the owner's separate development utility. The installed Assistant has no import controls, and the utility is excluded from installers and updates. Existing knowledge packages remain in the local ABTAgent store. Siemens manuals, programming archives and customer documents are not included in public downloads.
+
+PDF and HTML text provide reference evidence; inspect the original documents for diagrams, images and scanned content. Documentation does not establish live controller state or make additional ABT operations available. Engineering approval, locks and readback remain enforced.
+
+Read the [0.16.10 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.10).
 
 ## Requirements
 
