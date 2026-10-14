@@ -4,6 +4,8 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
+The latest published installer is **0.17.1**. **0.17.2 is in preparation** with an included graphics library and a redesigned Siemens SDC connection. The upcoming features described below are not yet in the public download.
+
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
 ## ABT Openness capabilities
@@ -44,7 +46,9 @@ Review **Preview graphic**, then choose **Save .f5p…** and **Save supporting f
 
 For a graphic based on engineering data, connect to ABT and select **Graphic from ABT plant**. Name the controller and plant, for example: “Build a graphic for plant AHU1234 in controller AS5668. Inspect its points, suggest the equipment and readings, and identify any missing information.” The Assistant inspects the exact selection through existing read-only tools and can retain selected engineering-object identities in the mapping schedule. Ambiguous, incomplete or stale evidence requires resolution; point names alone do not prove physical topology.
 
-The graphics code is included in the installer. Its reviewed native component/template library must be installed separately by an authorised owner into `%LOCALAPPDATA%\ABTAgent\Graphics\Library`. Use only assets you are entitled to use. The library contains Siemens-derived symbols and modules and is excluded from public installers and updates. Graphics generation is unavailable until this local library is present; the public download does not supply the asset pack.
+**Upcoming 0.17.2:** the normal Assistant installer and update package will include the reviewed library of 61 native examples, reusable components and required metadata. Graphics generation will be available after connecting an AI provider, with no separate graphics installation or file-copy step.
+
+**Current public 0.17.1:** the graphics builder is included, but its required library is not. Graphics generation needs a separately provisioned library in the local ABTAgent graphics store. The upcoming package corrects this installation gap.
 
 Generated files remain unbound. Static previews and structural validation do not establish target ABT import or native animation compatibility. Import, save and re-export the graphic in the intended ABT version, check native editing and animations, and verify point mappings, units, command/feedback, flow proof and quality behaviour before commissioning. Photorealistic generation and arbitrary existing `.f5p` intake are outside this release's supported scope.
 
@@ -65,9 +69,9 @@ Read the [0.16.10 release notes](https://github.com/timpendlebury/ABT-AI-Assista
 - Windows x64 with permission to install a per-user application.
 - For live engineering and plant inspection: a separately installed, licensed Siemens ABT Site with its hosted ABT Openness service configured and running.
 - The account or gateway required by your chosen AI provider, listed below.
-- For graphics generation: a separately installed, reviewed native graphics library that you are entitled to use. Generated files are imported into licensed ABT separately.
+- For graphics generation: a connected AI provider and the graphics library described above. Generated files are imported into licensed ABT separately.
 
-The installer includes .NET 10 and the graphics builder code. Siemens software, documentation and graphics assets are supplied separately.
+The installer includes .NET 10 and the graphics builder code; upcoming 0.17.2 also includes its runtime graphics library. Licensed Siemens ABT software and reference documentation are supplied separately.
 
 ## AI providers
 
@@ -76,13 +80,19 @@ The installer includes .NET 10 and the graphics builder code. Siemens software, 
 | ChatGPT / Codex | ChatGPT sign-in and a separately installed, qualified Codex runtime; uses your plan's Codex allowance. |
 | Claude API | An Anthropic API key with separate API usage and billing. |
 | Gemini API | A Google API key with separate API quota or billing. |
-| Siemens SDC | Company-issued Claude access for the selected global/European gateway; subject to company allocation and policy. |
+| Siemens SDC | A company-issued LLM Gateway API key and access to the selected model in the global/European region; subject to company allocation and policy. |
 | OpenClaw | A separately configured local Gateway and its token or password; model access is configured in OpenClaw. |
 | Claude Code (separate app) | The official installed client, using its own sign-in and conversation. |
 
 Assistant **0.16.8 and later** supports Codex `0.160.1`, `0.160.0`, `0.154.0-alpha.6.2` and `0.153.4`. Older assistant builds reject `0.160.1`. Direct API providers do not require Codex or Claude Code.
 
-Use **Provider setup & billing** in the application for detailed instructions. Provider credentials, settings and conversations stay separate, with no automatic account, endpoint or model fallback. Siemens SDC is Claude-only; its saved-model startup access check can consume company quota without sending conversation, attachments or ABT tools.
+Use **Provider setup & billing** in the application for detailed instructions. Provider credentials, settings and conversations stay separate, with no automatic account, endpoint or model fallback.
+
+**Upcoming 0.17.2: simpler Siemens SDC setup.** One **Siemens SDC** connection supports qualified Claude, Gemini and OpenAI models. Choose **Model provider**, then **Model** from its filtered list. The public catalogue loads automatically without an API key; **Test & connect** verifies access to that exact model and saves the connection only after success. Other gateway models remain unavailable until their ABT tool support is verified.
+
+Opening settings or starting the upcoming version does not make a paid model-access request. **Test & connect** consumes company quota and sends a small test message without conversation, attachments or ABT tools. Changing region, model provider or model requires explicit selection and verification. Keys stay within the selected gateway and model family, and switching families starts a fresh conversation.
+
+**Current public 0.17.1:** Siemens SDC supports Claude only. Its saved-model startup access check can consume company quota. The catalogue fixes and redesigned connection above will arrive in the next publication.
 
 ## Install
 
@@ -115,7 +125,7 @@ If readiness is unconfirmed or guards/helpers are unavailable, use **Download in
 
 - **Connection problems:** check that ABT Site's hosted Openness service is configured and running. The assistant does not start Siemens services or restart ABT Site automatically.
 - **Provider setup:** open **Provider setup & billing** in the application.
-- **Graphics library unavailable:** verify that an authorised owner has installed the reviewed native library in the local ABTAgent graphics store. The public installer does not include Siemens graphics assets.
+- **Graphics library unavailable in 0.17.1:** this version requires a separately provisioned local library. Upcoming 0.17.2 will include the library in the normal installer and update package.
 - **Windows trust warnings:** follow [CODE_SIGNING.md](CODE_SIGNING.md). SmartScreen or company policy may still block a self-signed application; keep Windows protections enabled.
 - **Download problems:** continue using the installed version and retry later, or download Setup from the latest release. Finish active work before repair or reinstall.
 - **Issues:** [report a problem](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/issues) without customer projects, credentials, private logs or Siemens reference material. Third-party notices are included under `legal/` in the installed application.
