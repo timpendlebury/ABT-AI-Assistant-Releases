@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-The latest published installer is **0.17.2**, with the graphics library included and a redesigned Siemens SDC connection.
+The latest published installer is **0.17.3**, with evidence-based graphics suggestions and controller overviews, qualified template animation options and saved Siemens SDC connection verification.
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
@@ -40,27 +40,33 @@ Project creation remains in ABT Site. Hardware commissioning, controller downloa
 
 ## Generate graphics
 
-Version **0.17.2** includes a graphics builder inside the Assistant. Choose **Generate graphics** in **Start a workflow**, select a sample prompt or describe your plant, equipment, connections and required readings in chat. The Assistant can assemble a complete native page from supported equipment symbols, pipe/duct connections, labels and grouped readout panels. Its 61 plant and PAC-meter examples provide layouts and reusable components; new scenes can have their own equipment counts and arrangement.
+Version **0.17.3** includes a graphics builder inside the Assistant. Choose **Generate graphics** in **Start a workflow**, select a sample prompt or describe your plant, equipment, connections and required readings in chat. The Assistant can assemble a complete native page from supported equipment symbols, pipe/duct connections, labels and grouped readout panels. Its 61 plant and PAC-meter examples provide layouts and reusable components; new scenes can have their own equipment counts and arrangement.
 
 Review **Preview graphic**, then choose **Save .f5p…** and **Save supporting files…** to save the native graphic, preview, mapping schedules and validation report. Import the `.f5p` into ABT separately. Graphics generation uses your selected AI provider and the bundled graphics library; no ABT Openness connection is required.
 
 For a graphic based on engineering data, connect to ABT and select **Graphic from ABT plant**. Name the controller and plant, for example: “Build a graphic for plant AHU1234 in controller AS5668. Inspect its points, suggest the equipment and readings, and identify any missing information.” The Assistant inspects the exact selection through existing read-only tools and can retain selected engineering-object identities in the mapping schedule. Ambiguous, incomplete or stale evidence requires resolution; point names alone do not prove physical topology.
 
+Choose **Controller overview** to inspect plants under one exact controller. The Assistant can suggest and generate equipment dashboards, air-side or hydronic equipment overviews, room temperature tables and general point tables from captured points and their hierarchy. Relevant exact ABT naming-catalog entries help classify the evidence; an optional strict naming profile leaves unqualified names unresolved. Larger inspections and layouts continue in pages, with incomplete coverage reported. Automatic overviews use unbound placeholders, preserve each point's plant identity and keep commands, feedback, run proof, measurements and setpoints distinct. They do not infer physical connections or read current temperatures.
+
+For the AHU21x Detailed template, qualified animation choices include numeric 0–100% fan-speed input and valve-linked heating/cooling coil colour. The result reports which choices changed the template and which existing behaviour was preserved. Renaming equipment or adding a speed caption alone does not configure animation; final animation inputs need mapping and checking in the target ABT environment.
+
 The normal Assistant installer and update package include the reviewed library of 61 native examples, reusable components and required readout/animation metadata. Connect your AI provider to start generating graphics; there is no separate graphics installation, asset download or file-copy step. The included native assets retain their original ownership and applicable terms; notices are under `legal/` in the installation.
 
-Generated files remain unbound. Static previews and structural validation do not establish target ABT import or native animation compatibility. Import, save and re-export the graphic in the intended ABT version, check native editing and animations, and verify point mappings, units, command/feedback, flow proof and quality behaviour before commissioning. Photorealistic generation and arbitrary existing `.f5p` intake are outside this release's supported scope.
+Generated files remain unbound. Static previews, structural validation and offline animation checks do not establish target ABT import or native animation compatibility. Live ABT acceptance remains deferred. Import, save and re-export the graphic in the intended ABT version, check native editing and animations, and verify point mappings, units, command/feedback, flow proof and quality behaviour before commissioning. Photorealistic generation and arbitrary existing `.f5p` intake are outside this release's supported scope.
 
-Read the [0.17.2 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.2).
+Read the [0.17.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.3).
 
 ## Local reference knowledge
 
-Version **0.16.10** expands read-only lookup across the prepared local PDF and Programming Library Help collection. Results retain document editions, PDF page numbers and linked topics so answers can cite their reference evidence. English, German and French can be selected explicitly.
+Read-only lookup covers prepared local PDF, values-only XLSX and Programming Library Help reference packages. Results retain document editions, PDF page numbers or workbook worksheet/cell ranges, source hashes and linked topics so answers can cite their reference evidence. English, German and French can be selected explicitly.
 
-Documentation import, extraction and package writing belong to the owner's separate development utility. The installed Assistant has no import controls, and the utility is excluded from installers and updates. Existing knowledge packages remain in the local ABTAgent store. Siemens manuals, programming archives and customer documents are not included in public downloads.
+Version **0.17.3** can consult the locally prepared NGA System One BACnet object/property workbook for **PXC4, PXC5, PXC7 and DXR3 only**, citing its revision, source hash, worksheet and cells. Documented data types, limits, enum choices and access notes must be checked against the actual target version, supported operations and live project evidence. This reference does not qualify other or legacy controller families or grant additional write permissions.
+
+Documentation import, extraction and package writing belong to the owner's separate development utility. The installed Assistant has no import controls, and the utility is excluded from installers and updates. Existing knowledge packages remain in the local ABTAgent store. Siemens reference workbooks, manuals, programming archives and customer documents are not included in public downloads. Workbook formulas and macros are not executed.
 
 PDF and HTML text provide reference evidence; inspect the original documents for diagrams, images and scanned content. Documentation does not establish live controller state or make additional ABT operations available. Engineering approval, locks and readback remain enforced.
 
-Read the [0.16.10 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.16.10).
+Read the [0.17.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.3).
 
 ## Requirements
 
@@ -88,7 +94,7 @@ Use **Provider setup & billing** in the application for detailed instructions. P
 
 **Siemens SDC setup.** One **Siemens SDC** connection supports qualified Claude, Gemini and OpenAI models. Choose **Model provider**, then **Model** from its filtered list. The public catalogue loads automatically without an API key; **Test & connect** verifies access to that exact model and saves the connection only after success. Other gateway models remain unavailable until their ABT tool support is verified.
 
-Opening Siemens SDC settings or starting with a saved SDC connection does not make a paid model-access request. **Test & connect** consumes company quota and sends a small test message without conversation, attachments or ABT tools. Changing region, model provider or model requires explicit selection and verification. Keys stay within the selected gateway and model family, and switching families starts a fresh conversation.
+**Test & connect** can consume company quota. When Siemens SDC is the saved provider and its key is remembered, reopening the desktop also checks access to the exact saved model through its saved gateway, model provider and protocol. This isolated check can consume company quota and sends only “Reply OK.” without conversation, attachments or ABT tools. **Connecting…** becomes **Connected** after success; a failed check preserves the saved connection and shows a reconnect notice. Opening Siemens SDC settings does not itself run a paid access test. Changing region, model provider or model requires explicit selection and verification. Keys stay within the selected gateway and model family, and switching families starts a fresh conversation.
 
 ## Install
 
