@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-The latest published installer is **0.17.1**. **0.17.2 is in preparation** with an included graphics library and a redesigned Siemens SDC connection. The upcoming features described below are not yet in the public download.
+The latest published installer is **0.17.2**, with the graphics library included and a redesigned Siemens SDC connection.
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
@@ -40,19 +40,17 @@ Project creation remains in ABT Site. Hardware commissioning, controller downloa
 
 ## Generate graphics
 
-Version **0.17.1** adds a graphics builder inside the Assistant. Choose **Generate graphics** in **Start a workflow**, select a sample prompt or describe your plant, equipment, connections and required readings in chat. The Assistant can assemble a complete native page from supported equipment symbols, pipe/duct connections, labels and grouped readout panels. Its 61 plant and PAC-meter examples provide layouts and reusable components; new scenes can have their own equipment counts and arrangement.
+Version **0.17.2** includes a graphics builder inside the Assistant. Choose **Generate graphics** in **Start a workflow**, select a sample prompt or describe your plant, equipment, connections and required readings in chat. The Assistant can assemble a complete native page from supported equipment symbols, pipe/duct connections, labels and grouped readout panels. Its 61 plant and PAC-meter examples provide layouts and reusable components; new scenes can have their own equipment counts and arrangement.
 
-Review **Preview graphic**, then choose **Save .f5p…** and **Save supporting files…** to save the native graphic, preview, mapping schedules and validation report. Import the `.f5p` into ABT separately. Graphics generation needs the selected AI provider and local graphics library, with no ABT Openness connection required.
+Review **Preview graphic**, then choose **Save .f5p…** and **Save supporting files…** to save the native graphic, preview, mapping schedules and validation report. Import the `.f5p` into ABT separately. Graphics generation uses your selected AI provider and the bundled graphics library; no ABT Openness connection is required.
 
 For a graphic based on engineering data, connect to ABT and select **Graphic from ABT plant**. Name the controller and plant, for example: “Build a graphic for plant AHU1234 in controller AS5668. Inspect its points, suggest the equipment and readings, and identify any missing information.” The Assistant inspects the exact selection through existing read-only tools and can retain selected engineering-object identities in the mapping schedule. Ambiguous, incomplete or stale evidence requires resolution; point names alone do not prove physical topology.
 
-**Upcoming 0.17.2:** the normal Assistant installer and update package will include the reviewed library of 61 native examples, reusable components and required metadata. Graphics generation will be available after connecting an AI provider, with no separate graphics installation or file-copy step.
-
-**Current public 0.17.1:** the graphics builder is included, but its required library is not. Graphics generation needs a separately provisioned library in the local ABTAgent graphics store. The upcoming package corrects this installation gap.
+The normal Assistant installer and update package include the reviewed library of 61 native examples, reusable components and required readout/animation metadata. Connect your AI provider to start generating graphics; there is no separate graphics installation, asset download or file-copy step. The included native assets retain their original ownership and applicable terms; notices are under `legal/` in the installation.
 
 Generated files remain unbound. Static previews and structural validation do not establish target ABT import or native animation compatibility. Import, save and re-export the graphic in the intended ABT version, check native editing and animations, and verify point mappings, units, command/feedback, flow proof and quality behaviour before commissioning. Photorealistic generation and arbitrary existing `.f5p` intake are outside this release's supported scope.
 
-Read the [0.17.1 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.1).
+Read the [0.17.2 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.2).
 
 ## Local reference knowledge
 
@@ -69,9 +67,9 @@ Read the [0.16.10 release notes](https://github.com/timpendlebury/ABT-AI-Assista
 - Windows x64 with permission to install a per-user application.
 - For live engineering and plant inspection: a separately installed, licensed Siemens ABT Site with its hosted ABT Openness service configured and running.
 - The account or gateway required by your chosen AI provider, listed below.
-- For graphics generation: a connected AI provider and the graphics library described above. Generated files are imported into licensed ABT separately.
+- For graphics generation: a connected AI provider. The installer supplies the native graphics library; generated files are imported into licensed ABT separately.
 
-The installer includes .NET 10 and the graphics builder code; upcoming 0.17.2 also includes its runtime graphics library. Licensed Siemens ABT software and reference documentation are supplied separately.
+The installer includes .NET 10, the graphics builder and its runtime graphics library. Licensed Siemens ABT software and reference documentation are supplied separately.
 
 ## AI providers
 
@@ -88,11 +86,9 @@ Assistant **0.16.8 and later** supports Codex `0.160.1`, `0.160.0`, `0.154.0-alp
 
 Use **Provider setup & billing** in the application for detailed instructions. Provider credentials, settings and conversations stay separate, with no automatic account, endpoint or model fallback.
 
-**Upcoming 0.17.2: simpler Siemens SDC setup.** One **Siemens SDC** connection supports qualified Claude, Gemini and OpenAI models. Choose **Model provider**, then **Model** from its filtered list. The public catalogue loads automatically without an API key; **Test & connect** verifies access to that exact model and saves the connection only after success. Other gateway models remain unavailable until their ABT tool support is verified.
+**Siemens SDC setup.** One **Siemens SDC** connection supports qualified Claude, Gemini and OpenAI models. Choose **Model provider**, then **Model** from its filtered list. The public catalogue loads automatically without an API key; **Test & connect** verifies access to that exact model and saves the connection only after success. Other gateway models remain unavailable until their ABT tool support is verified.
 
-Opening settings or starting the upcoming version does not make a paid model-access request. **Test & connect** consumes company quota and sends a small test message without conversation, attachments or ABT tools. Changing region, model provider or model requires explicit selection and verification. Keys stay within the selected gateway and model family, and switching families starts a fresh conversation.
-
-**Current public 0.17.1:** Siemens SDC supports Claude only. Its saved-model startup access check can consume company quota. The catalogue fixes and redesigned connection above will arrive in the next publication.
+Opening Siemens SDC settings or starting with a saved SDC connection does not make a paid model-access request. **Test & connect** consumes company quota and sends a small test message without conversation, attachments or ABT tools. Changing region, model provider or model requires explicit selection and verification. Keys stay within the selected gateway and model family, and switching families starts a fresh conversation.
 
 ## Install
 
@@ -125,7 +121,7 @@ If readiness is unconfirmed or guards/helpers are unavailable, use **Download in
 
 - **Connection problems:** check that ABT Site's hosted Openness service is configured and running. The assistant does not start Siemens services or restart ABT Site automatically.
 - **Provider setup:** open **Provider setup & billing** in the application.
-- **Graphics library unavailable in 0.17.1:** this version requires a separately provisioned local library. Upcoming 0.17.2 will include the library in the normal installer and update package.
+- **Graphics library unavailable:** finish Assistant/ABT work and close Assistant sessions and companion windows normally, then repair or update using the normal Setup installer. The graphics library is included; no separate asset pack is required.
 - **Windows trust warnings:** follow [CODE_SIGNING.md](CODE_SIGNING.md). SmartScreen or company policy may still block a self-signed application; keep Windows protections enabled.
 - **Download problems:** continue using the installed version and retry later, or download Setup from the latest release. Finish active work before repair or reinstall.
 - **Issues:** [report a problem](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/issues) without customer projects, credentials, private logs or Siemens reference material. Third-party notices are included under `legal/` in the installed application.
