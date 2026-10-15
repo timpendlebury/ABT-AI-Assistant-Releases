@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-The latest published installer is **0.17.3**, with evidence-based graphics suggestions and controller overviews, qualified template animation options and saved Siemens SDC connection verification.
+The latest published installer is **0.17.4**, with an urgent hosted-locking and physical-I/O import fix: check the locking startup prerequisite before controller creation, stop after an unusable session and clearly report partial work. It also adds desktop interface zoom. Read the [0.17.4 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.4).
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
@@ -113,6 +113,10 @@ Use **Provider setup & billing** in the application for detailed instructions. P
 
 Engineering changes require explicit approval and readback checks, with verified device locks for device-scoped operations. Cancellation, expiry and closing the assistant never approve an action. **Disconnect** releases the assistant's connection while leaving the project open in ABT Site.
 
+Version **0.17.4** checks the qualified ABT Site locking startup prerequisite before engineering writes. The startup qualification currently covers ProjectServices build **62.0.2172.1**; other builds block engineering writes until qualified. If the setting is missing or was restored after ABT Site started, save the project, close ABT Site normally and reopen it as directed before preparing a new plan. The Assistant does not change that setting or restart ABT Site automatically; it still verifies actual lock ownership before device-scoped writes.
+
+For a failed physical-I/O import, inspect the current project before retrying. Reconnect explicitly and prepare a fresh plan that reuses any controller already created and includes only work confirmed to be missing. Version 0.17.4 retains the original failure, displays confirmed partial work and stops scheduling further controllers after losing a usable session. Updating does not undo existing project changes or replay the original plan.
+
 A timeout or lost reply may leave a partially completed change. Inspect the current ABT state before preparing further work; controller creation is never retried automatically after an uncertain result. Live account access, gateway compatibility and engineering changes require verification in your authorised environment.
 
 ## Updates
@@ -125,6 +129,7 @@ If readiness is unconfirmed or guards/helpers are unavailable, use **Download in
 
 ## Help
 
+- **Interface size (0.17.4):** use **Ctrl + mouse wheel** or the bottom **− / +** controls to scale text, buttons and panels from 70% to 150%. **Ctrl+0** or the percentage button resets to 100%. Zoom lasts for the current window session.
 - **Connection problems:** check that ABT Site's hosted Openness service is configured and running. The assistant does not start Siemens services or restart ABT Site automatically.
 - **Provider setup:** open **Provider setup & billing** in the application.
 - **Graphics library unavailable:** finish Assistant/ABT work and close Assistant sessions and companion windows normally, then repair or update using the normal Setup installer. The graphics library is included; no separate asset pack is required.
