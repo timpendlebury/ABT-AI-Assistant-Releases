@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-The latest published installer is **0.17.4**, with an urgent hosted-locking and physical-I/O import fix: check the locking startup prerequisite before controller creation, stop after an unusable session and clearly report partial work. It also adds desktop interface zoom. Read the [0.17.4 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.4).
+The latest published installer is **0.17.5**, improving physical-I/O contact mapping, remote island-bus topology readback, application-path verification and reporting of incomplete assignment batches. It retains the hosted-locking checks and interface zoom from 0.17.4. Read the [0.17.5 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.5).
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
@@ -88,7 +88,7 @@ The installer includes .NET 10, the graphics builder and its runtime graphics li
 | OpenClaw | A separately configured local Gateway and its token or password; model access is configured in OpenClaw. |
 | Claude Code (separate app) | The official installed client, using its own sign-in and conversation. |
 
-Assistant **0.16.8 and later** supports Codex `0.160.1`, `0.160.0`, `0.154.0-alpha.6.2` and `0.153.4`. Older assistant builds reject `0.160.1`. Direct API providers do not require Codex or Claude Code.
+Assistant **0.17.5** additionally accepts the exact separately installed Codex version `0.162.0-alpha.17.2`, qualified with an isolated offline runtime probe. The earlier qualified versions `0.160.1`, `0.160.0`, `0.154.0-alpha.6.2` and `0.153.4` remain supported. Earlier Assistant releases do not qualify the new version. Offline runtime qualification does not establish live account access. Direct API providers do not require Codex or Claude Code.
 
 Use **Provider setup & billing** in the application for detailed instructions. Provider credentials, settings and conversations stay separate, with no automatic account, endpoint or model fallback.
 
@@ -114,6 +114,10 @@ Use **Provider setup & billing** in the application for detailed instructions. P
 Engineering changes require explicit approval and readback checks, with verified device locks for device-scoped operations. Cancellation, expiry and closing the assistant never approve an action. **Disconnect** releases the assistant's connection while leaving the project open in ABT Site.
 
 Version **0.17.4** checks the qualified ABT Site locking startup prerequisite before engineering writes. The startup qualification currently covers ProjectServices build **62.0.2172.1**; other builds block engineering writes until qualified. If the setting is missing or was restored after ABT Site started, save the project, close ABT Site normally and reopen it as directed before preparing a new plan. The Assistant does not change that setting or restart ABT Site automatically; it still verifies actual lock ownership before device-scoped writes.
+
+Version **0.17.5** recognizes qualified binary-contact evidence, including explicit normally-open/normally-closed signals and supported current-switch, leak-contact terminal and actuator end-switch mappings. Recognized contacts without explicit polarity use the disclosed normally-open default; explicit normally-closed signals are preserved. Conflicting wiring and unqualified signals remain for review. Remote island-bus rail connections, including IBE expansion placement, are preserved in topology readback. Application placement uses the logical Plant/Folder path, while assignment verification checks the physical module and channel.
+
+Independent assignment batches can continue after a failed batch while the approved session remains usable. Results identify failed or unconfirmed rows and created-but-unassigned points; failed batches are never replayed automatically. An owner-approved repair and complete live readback matched all **1,030 active physical points across 21 controllers** for assignments, I/O classes, current source names and application paths. That validates the repaired existing project; it does not establish cold-project import acceptance or compatibility with every ABT build.
 
 For a failed physical-I/O import, inspect the current project before retrying. Reconnect explicitly and prepare a fresh plan that reuses any controller already created and includes only work confirmed to be missing. Version 0.17.4 retains the original failure, displays confirmed partial work and stops scheduling further controllers after losing a usable session. Updating does not undo existing project changes or replay the original plan.
 
