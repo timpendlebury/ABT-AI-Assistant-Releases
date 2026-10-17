@@ -4,7 +4,9 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-The latest published installer is **0.17.5**, improving physical-I/O contact mapping, remote island-bus topology readback, application-path verification and reporting of incomplete assignment batches. It retains the hosted-locking checks and interface zoom from 0.17.4. Read the [0.17.5 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.5).
+The latest published installer is **0.18.1**, adding workbook-only points-schedule review, CFC reference and static engineering checks, clearer chat messages and Siemens SDC waiting feedback. Read the [0.18.1 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.18.1).
+
+Owner-only local cASA intake and verification preserves source and revision references. cASA model/runtime access remains disabled; cASA documents, recovered evidence and extraction tools are excluded from installers and updates. The reviewed graphics library remains included under its existing entitlement notices.
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
@@ -21,8 +23,10 @@ The assistant connects to your open project through the **local ABT Openness ser
 | **Modbus engineering** | Inspect available libraries and serial ports; prepare supported TCP/RTU networks, devices, library-device instances and datapoints using explicit communication and register settings. |
 | **Application libraries** | Find controller-compatible applications, inspect configurations, and prepare application-configuration creation, option/variant selections and user-designation assignments. |
 | **CFC programming** | Inspect programs, charts, function blocks, pins and interconnections; prepare supported chart, block, pin-value and connection edits. |
+| **CFC references and static checks** | Search/read/trace prepared local CFC libraries, capture a selected attached program into a bounded read-only snapshot, and review connection traces and static requirements scenarios. These checks do not compile, download or simulate a controller. |
 | **Bulk project changes** | Select exact objects across controllers and prepare approved naming, description or allowed configuration-value changes, including text replacements and numeric transforms. |
 | **Excel physical-I/O import** | Review supported points schedules, resolve controller/module/library mappings, and prepare controller, structure, point and physical-I/O assignments for an approved import. |
+| **Workbook-only schedule review** | Check supported schedules without an ABT connection, retaining worksheet/cell evidence for duplicate names or addresses, missing values and explicitly configured rules. |
 | **Excel and ABT reconciliation** | Compare an existing workbook with ABT, review mismatches and choose the source for supported name, description and I/O assignment updates. Excel output is a revised copy. |
 | **ABT help and engineering guidance** | Search locally installed ABT and Programming Library Help, plus prepared local reference packages; explain documented functions and relate application recommendations to live controller-compatible libraries. |
 
