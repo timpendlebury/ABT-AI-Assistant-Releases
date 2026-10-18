@@ -4,9 +4,9 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-The latest published installer is **0.18.1**, adding workbook-only points-schedule review, CFC reference and static engineering checks, clearer chat messages and Siemens SDC waiting feedback. Read the [0.18.1 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.18.1).
+Version **0.18.2** adds shared private cASA answers across configured Assistant connections and authenticated MCP clients. Read the [0.18.2 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.18.2). cASA requires a separately owner-provisioned local private service and explicit authorization; installing alone does not enable it.
 
-Owner-only local cASA intake and verification preserves source and revision references. cASA model/runtime access remains disabled; cASA documents, recovered evidence and extraction tools are excluded from installers and updates. The reviewed graphics library remains included under its existing entitlement notices.
+The installer includes the bounded cASA answer client. Original cASA documents, excerpts, diagrams and source references remain inside the private service; users and their selected connection receive derived answers. The private service, corpus, extraction tools and credentials are excluded from installers and updates. The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
@@ -68,6 +68,8 @@ Version **0.17.3** can consult the locally prepared NGA System One BACnet object
 
 Documentation import, extraction and package writing belong to the owner's separate development utility. The installed Assistant has no import controls, and the utility is excluded from installers and updates. Existing knowledge packages remain in the local ABTAgent store. Siemens reference workbooks, manuals, programming archives and customer documents are not included in public downloads. Workbook formulas and macros are not executed.
 
+Private cASA answers use the shared bounded `abt_ask_casa` tool across configured Codex, Claude API, Gemini API, OpenClaw and qualified Siemens SDC connections, plus authenticated MCP clients. A separately owner-provisioned local private service must authorize the installation and enable derived answers; no company sign-in is required. Raw-evidence generation stays on its separately approved Siemens SDC connection, with no generation fallback. Other selected connections receive derived answers without original excerpts or source references. cASA describes historical, unverified and incomplete design intent; CFC references are candidates that require independent checking against the actual target implementation.
+
 PDF and HTML text provide reference evidence; inspect the original documents for diagrams, images and scanned content. Documentation does not establish live controller state or make additional ABT operations available. Engineering approval, locks and readback remain enforced.
 
 Read the [0.17.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.3).
@@ -78,6 +80,7 @@ Read the [0.17.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistan
 - For live engineering and plant inspection: a separately installed, licensed Siemens ABT Site with its hosted ABT Openness service configured and running.
 - The account or gateway required by your chosen AI provider, listed below.
 - For graphics generation: a connected AI provider. The installer supplies the native graphics library; generated files are imported into licensed ABT separately.
+- For cASA answers: a separately owner-provisioned local private cASA service with prepared knowledge, background installation authorization and explicit answer approval. The installer supplies only its client; a new installation has no automatic cASA access.
 
 The installer includes .NET 10, the graphics builder and its runtime graphics library. Licensed Siemens ABT software and reference documentation are supplied separately.
 
