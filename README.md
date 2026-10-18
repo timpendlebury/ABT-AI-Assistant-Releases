@@ -4,9 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-The latest published installer is **0.18.1**, adding workbook-only points-schedule review, CFC reference and static engineering checks, clearer chat messages and Siemens SDC waiting feedback. Read the [0.18.1 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.18.1).
-
-The reviewed graphics library remains included under its existing entitlement notices.
+The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 
