@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-Version **0.18.3** adds complete CFC graph authoring and **Create CFC snippet**, an editable conversation starter for control logic and custom-library saving. Read the [0.18.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.18.3). Supported plans include typed datapoints, block settings, layout and wiring; effective device binding, native acceptance and complete portable-library reuse remain separate checks.
+Version **0.18.4** fixes first-install ABT connection setup. Installation and reinstallation create missing connection settings for your Windows user even when you do not launch the application afterward. Normal startup and **Connect** also restore missing settings. Existing valid settings are preserved; damaged or inaccessible settings provide recovery guidance. You no longer need to open the separate ABT Setup utility before first use. Read the [0.18.4 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.18.4).
 
 The installer includes the bounded cASA answer client. Original cASA documents, excerpts, diagrams and source references remain inside the private service; users and their selected connection receive derived answers. The private service, corpus, extraction tools and credentials are excluded from installers and updates. The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
