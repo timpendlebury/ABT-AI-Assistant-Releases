@@ -4,6 +4,8 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
+Version **0.18.3** adds complete CFC graph authoring and **Create CFC snippet**, an editable conversation starter for control logic and custom-library saving. Read the [0.18.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.18.3). Supported plans include typed datapoints, block settings, layout and wiring; effective device binding, native acceptance and complete portable-library reuse remain separate checks.
+
 The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
@@ -20,7 +22,7 @@ The assistant connects to your open project through the **local ABT Openness ser
 | **TX-I/O engineering** | Inspect rails, modules and point assignments; discover compatible modules and library points; prepare rails, modules, datapoints and channel assignment changes. |
 | **Modbus engineering** | Inspect available libraries and serial ports; prepare supported TCP/RTU networks, devices, library-device instances and datapoints using explicit communication and register settings. |
 | **Application libraries** | Find controller-compatible applications, inspect configurations, and prepare application-configuration creation, option/variant selections and user-designation assignments. |
-| **CFC programming** | Inspect programs, charts, function blocks, pins and interconnections; prepare supported chart, block, pin-value and connection edits. |
+| **CFC programming** | Inspect programs, charts, function blocks, pins and interconnections; compose new programs from reviewed block/datapoint profiles, check complete graphs, and prepare approved point, setting, layout, wiring and supported library-export work. |
 | **CFC references and static checks** | Search/read/trace prepared local CFC libraries, capture a selected attached program into a bounded read-only snapshot, and review connection traces and static requirements scenarios. These checks do not compile, download or simulate a controller. |
 | **Bulk project changes** | Select exact objects across controllers and prepare approved naming, description or allowed configuration-value changes, including text replacements and numeric transforms. |
 | **Excel physical-I/O import** | Review supported points schedules, resolve controller/module/library mappings, and prepare controller, structure, point and physical-I/O assignments for an approved import. |
@@ -39,6 +41,15 @@ Project creation remains in ABT Site. Hardware commissioning, controller downloa
 - “Review this points schedule and show the proposed controllers, modules and point assignments before making changes.”
 - “Compare this workbook with ABT and show which names, descriptions or I/O assignments differ.”
 - “Show compatible library applications for this controller and explain which match my AHU requirements.”
+- “Help me create a reusable CFC snippet for a fan with fault inhibition and a delayed run-proof alarm. Ask for the sequence and controller, then show the complete design and explain what can be saved to my custom library.”
+
+## Create CFC snippets
+
+Choose **Create CFC snippet** under **Start a workflow** to draft an editable message. Send it when ready, then specify the control sequence, intended controller and library item name. The Assistant asks for decisions that affect behavior, including input/output roles, units, settings, priorities, interlocks, timing, resets and alarms. Review the complete design before approving any project change.
+
+Version **0.18.3** composes supported sequences using 21 reviewed block profiles and nine typed datapoint profiles. Prepared plans include the required datapoints, blocks, effective parameter sources, layout and directed connections, with physical channels left unassigned. Complete-graph checks reject unknown types or pins, missing required signals, incompatible values, duplicate drivers and unsupported structures before preparation. Target preparation verifies actual supported types and reviewed help evidence; execution uses native approval, fresh state checks, verified locks and complete engineering readback. Requests outside the qualified profiles need clarification or further capability qualification. The requirement-to-signal preview still needs engineering review; a static graph check does not execute Siemens function blocks or prove the interpretation of a user's sequence.
+
+Request library export in the plan, then inspect the reported saved contents and remaining manual steps. The observed installed Openness service exports CFC graph data and metadata without the associated BACnet datapoints. Its object-reference metadata does not establish effective device binding, and device placement and detached-program persistence remain unverified. A saved CFC artifact is therefore not proof of a complete reusable equipment package. Native custom-library placement/import, ABT Check, execution order, device binding, persistence, download and commissioning require separate acceptance in the intended environment. Alarm-condition logic does not configure BACnet notification classes, recipients or acknowledgment behavior.
 
 ## Generate graphics
 
