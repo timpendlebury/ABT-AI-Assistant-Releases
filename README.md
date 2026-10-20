@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-Version **0.19.1** adds Siemens SDC reasoning controls, a model selection and pricing guide, improved ChatGPT connection compatibility and more reliable first-time connection setup. Read the [0.19.1 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.1).
+Version **0.19.2** adds Siemens SDC Claude reasoning controls, includes verified effort choices for qualified Global models and recovers from an unreadable ChatGPT sign-in cache. Read the [0.19.2 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.2).
 
 The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
@@ -101,13 +101,13 @@ The installer includes .NET 10, the graphics builder and its runtime graphics li
 | OpenClaw | A separately configured local Gateway and its token or password; model access is configured in OpenClaw. |
 | Claude Code (separate app) | The official installed client, using its own sign-in and conversation. |
 
-Assistant **0.19.1** supports Codex `0.163.0-alpha.10.2` and the earlier supported versions `0.162.0-alpha.17.2`, `0.160.1`, `0.160.0`, `0.154.0-alpha.6.2` and `0.153.4`. On first use, install a supported Codex runtime and sign in to ChatGPT. The Assistant retains a compatible runtime for later connections, so Codex app updates do not replace it. Direct API providers do not require Codex or Claude Code.
+Assistant **0.19.2** supports Codex `0.163.0-alpha.10.2` and the earlier supported versions `0.162.0-alpha.17.2`, `0.160.1`, `0.160.0`, `0.154.0-alpha.6.2` and `0.153.4`. On first use, install a supported Codex runtime and sign in to ChatGPT. The Assistant retains a compatible runtime for later connections, so Codex app updates do not replace it. A confirmed unreadable encrypted sign-in cache is preserved separately so you can sign in again; other saved connections and settings are retained. Direct API providers do not require Codex or Claude Code.
 
 Use **Provider setup & billing** in the application for detailed instructions. Provider credentials, settings and conversations stay separate, with no automatic account, endpoint or model fallback.
 
 **Siemens SDC setup.** One **Siemens SDC** connection supports qualified Claude, Gemini and OpenAI models. Choose **Model provider**, then **Model** from its filtered list. The public catalogue loads automatically without an API key; **Test & connect** verifies access to that exact model and saves the connection only after success. Other gateway models remain unavailable until their ABT tool support is verified.
 
-**Siemens SDC model controls.** Choose **Reasoning effort** for supported models. **Default** leaves the choice to the gateway or model; additional OpenAI levels require configuration for your gateway and model. Your choice is remembered; higher effort may increase response time and token usage. Open **Model selection & pricing guide** beside the model controls for task suggestions, dated example costs, current pricing links and effort configuration instructions.
+**Siemens SDC model controls.** Choose **Reasoning effort** for supported models. Verified profiles are included for qualified Global Claude models and OpenAI `gpt-6.1-sol`; available choices match each model. Other gateway/model/protocol combinations require explicit configuration, and local configuration takes precedence. Models without a native effort setting retain **Default**, which leaves the choice to the gateway or model. Your choice is remembered; higher effort may increase response time and token usage. Open **Model selection & pricing guide** beside the model controls for task suggestions, dated example costs, current pricing links and effort configuration instructions.
 
 **Test & connect** can consume company quota. When Siemens SDC is the saved provider and its key is remembered, reopening the desktop also checks access to the exact saved model through its saved gateway, model provider and protocol. This isolated check can consume company quota and sends only “Reply OK.” without conversation, attachments or ABT tools. **Connecting…** becomes **Connected** after success; a failed check preserves the saved connection and shows a reconnect notice. Opening Siemens SDC settings does not itself run a paid access test. Changing region, model provider or model requires explicit selection and verification. Keys stay within the selected gateway and model family, and switching families starts a fresh conversation.
 
