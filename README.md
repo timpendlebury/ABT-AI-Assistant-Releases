@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-Version **0.18.4** fixes first-install ABT connection setup. Installation and reinstallation create missing connection settings for your Windows user even when you do not launch the application afterward. Normal startup and **Connect** also restore missing settings. Existing valid settings are preserved; damaged or inaccessible settings provide recovery guidance. You no longer need to open the separate ABT Setup utility before first use. Read the [0.18.4 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.18.4).
+Version **0.19.1** adds Siemens SDC reasoning controls, a model selection and pricing guide, improved ChatGPT connection compatibility and more reliable first-time connection setup. Read the [0.19.1 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.1).
 
 The installer includes the bounded cASA answer client. Original cASA documents, excerpts, diagrams and source references remain inside the private service; users and their selected connection receive derived answers. The private service, corpus, extraction tools and credentials are excluded from installers and updates. The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
@@ -75,7 +75,7 @@ Read-only lookup covers prepared local PDF, values-only XLSX and Programming Lib
 
 Version **0.17.3** can consult the locally prepared NGA System One BACnet object/property workbook for **PXC4, PXC5, PXC7 and DXR3 only**, citing its revision, source hash, worksheet and cells. Documented data types, limits, enum choices and access notes must be checked against the actual target version, supported operations and live project evidence. This reference does not qualify other or legacy controller families or grant additional write permissions.
 
-Documentation import, extraction and package writing belong to the owner's separate development utility. The installed Assistant has no import controls, and the utility is excluded from installers and updates. Existing knowledge packages remain in the local ABTAgent store. Siemens reference workbooks, manuals, programming archives and customer documents are not included in public downloads. Workbook formulas and macros are not executed.
+Documentation import, extraction and package writing belong to the owner's separate development utility. The installed Assistant has no import controls, and the utility is excluded from installers and updates. Existing knowledge packages remain in the local ABTAIAssistantData store. Siemens reference workbooks, manuals, programming archives and customer documents are not included in public downloads. Workbook formulas and macros are not executed.
 
 Private cASA answers use the shared bounded `abt_ask_casa` tool across configured Codex, Claude API, Gemini API, OpenClaw and qualified Siemens SDC connections, plus authenticated MCP clients. A separately owner-provisioned local private service must authorize the installation and enable derived answers; no company sign-in is required. Raw-evidence generation stays on its separately approved Siemens SDC connection, with no generation fallback. Other selected connections receive derived answers without original excerpts or source references. cASA describes historical, unverified and incomplete design intent; CFC references are candidates that require independent checking against the actual target implementation.
 
@@ -104,11 +104,13 @@ The installer includes .NET 10, the graphics builder and its runtime graphics li
 | OpenClaw | A separately configured local Gateway and its token or password; model access is configured in OpenClaw. |
 | Claude Code (separate app) | The official installed client, using its own sign-in and conversation. |
 
-Assistant **0.17.5** additionally accepts the exact separately installed Codex version `0.162.0-alpha.17.2`, qualified with an isolated offline runtime probe. The earlier qualified versions `0.160.1`, `0.160.0`, `0.154.0-alpha.6.2` and `0.153.4` remain supported. Earlier Assistant releases do not qualify the new version. Offline runtime qualification does not establish live account access. Direct API providers do not require Codex or Claude Code.
+Assistant **0.19.1** supports Codex `0.163.0-alpha.10.2` and the earlier supported versions `0.162.0-alpha.17.2`, `0.160.1`, `0.160.0`, `0.154.0-alpha.6.2` and `0.153.4`. On first use, install a supported Codex runtime and sign in to ChatGPT. The Assistant retains a compatible runtime for later connections, so Codex app updates do not replace it. Direct API providers do not require Codex or Claude Code.
 
 Use **Provider setup & billing** in the application for detailed instructions. Provider credentials, settings and conversations stay separate, with no automatic account, endpoint or model fallback.
 
 **Siemens SDC setup.** One **Siemens SDC** connection supports qualified Claude, Gemini and OpenAI models. Choose **Model provider**, then **Model** from its filtered list. The public catalogue loads automatically without an API key; **Test & connect** verifies access to that exact model and saves the connection only after success. Other gateway models remain unavailable until their ABT tool support is verified.
+
+**Siemens SDC model controls.** Choose **Reasoning effort** for supported models. **Default** leaves the choice to the gateway or model; additional OpenAI levels require configuration for your gateway and model. Your choice is remembered; higher effort may increase response time and token usage. Open **Model selection & pricing guide** beside the model controls for task suggestions, dated example costs, current pricing links and effort configuration instructions.
 
 **Test & connect** can consume company quota. When Siemens SDC is the saved provider and its key is remembered, reopening the desktop also checks access to the exact saved model through its saved gateway, model provider and protocol. This isolated check can consume company quota and sends only “Reply OK.” without conversation, attachments or ABT tools. **Connecting…** becomes **Connected** after success; a failed check preserves the saved connection and shows a reconnect notice. Opening Siemens SDC settings does not itself run a paid access test. Changing region, model provider or model requires explicit selection and verification. Keys stay within the selected gateway and model family, and switching families starts a fresh conversation.
 
@@ -150,6 +152,7 @@ If readiness is unconfirmed or guards/helpers are unavailable, use **Download in
 ## Help
 
 - **Interface size (0.17.4):** use **Ctrl + mouse wheel** or the bottom **− / +** controls to scale text, buttons and panels from 70% to 150%. **Ctrl+0** or the percentage button resets to 100%. Zoom lasts for the current window session.
+- **Saved-data conflict after updating:** preserve the existing data and follow the startup recovery guidance.
 - **Connection problems:** check that ABT Site's hosted Openness service is configured and running. The assistant does not start Siemens services or restart ABT Site automatically.
 - **Provider setup:** open **Provider setup & billing** in the application.
 - **Graphics library unavailable:** finish Assistant/ABT work and close Assistant sessions and companion windows normally, then repair or update using the normal Setup installer. The graphics library is included; no separate asset pack is required.
