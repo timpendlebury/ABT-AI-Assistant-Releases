@@ -4,11 +4,21 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-Version **0.19.2** adds Siemens SDC Claude reasoning controls, includes verified effort choices for qualified Global models and recovers from an unreadable ChatGPT sign-in cache. Read the [0.19.2 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.2).
+Version **0.19.3** adds local presentation preferences, usage reporting controls and a first-launch whole-tool disclaimer acknowledgement. Existing reporting opt-outs are preserved, and reporting can be disabled under **Privacy & usage** without losing tool access. Siemens SDC requests no longer use the Assistant's automatic elapsed-time deadline; **Stop** and provider limits remain. Read the [0.19.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.3).
 
 The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
+Reporting can be disabled under **Privacy & usage** without losing tool access. The current analytics service plan provides one year of query history; that window does not guarantee automatic deletion of older received events. Disabling reporting cancels pending delivery and removes unsent statistics, without deleting reports already received by PostHog.
+
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
+>
+> Usage statistics apply only to releases that include usage reporting. On first launch of such a release, acknowledging this disclaimer enables reporting unless an existing reporting preference or administrator policy disables it. You can disable reporting at any time under Privacy & usage without losing access to the tool.
+>
+> The publisher uses a private PostHog Cloud project hosted in the European Union to measure installation activity, feature use and update adoption. Reports contain a random installation identifier that persists across updates, session and conversation identifiers, conversation and assistant-turn counts, turn outcomes, AI connection/provider and reviewed public model identifiers, the running app version, timestamps and the Windows configured country/region. The country/region is a computer setting, not a verified physical location. The installation identifier represents a Windows user profile, not a named person or guaranteed distinct PC; activity from that installation can be linked over time.
+>
+> Usage reports exclude conversation text, prompts, replies, attachments, customer and project content, usernames, email addresses, computer names, hardware identifiers and credentials. IP-based location enrichment is disabled; the analytics service still receives the network source IP when a connection is made. Reporting is independent of your AI provider and does not train AI models. Private knowledge access and requests sent to your selected AI provider follow their separate configurations and terms.
+>
+> Unsent statistics expire after seven days and are removed when the application next processes its reporting queue. Disabling reporting cancels pending delivery and removes unsent statistics; it does not delete information already received by PostHog, which remains subject to the project's retention and deletion settings. Statistics and installation identifiers are not published to the public releases repository. Questions about usage reporting can be raised with the publisher through the public repository's issue tracker; do not post installation identifiers, credentials or project data publicly.
 
 ## ABT Openness capabilities
 
@@ -116,7 +126,7 @@ Use **Provider setup & billing** in the application for detailed instructions. P
 1. Open the [latest release](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) and download `ABTAIAssistant-stable-Setup.exe` and `T-Pendlebury-code-signing.cer`.
 2. Follow [signature verification and optional certificate trust](CODE_SIGNING.md). Installers use a self-signed certificate; independently confirm its fingerprint and follow your organisation's policy.
 3. Finish existing ABT work and close assistant sessions and companion windows normally, then run Setup.
-4. Start ABT AI Assistant and connect your chosen AI provider.
+4. Start ABT AI Assistant, read the full disclaimer, tick its acknowledgement box and choose **Continue**, then connect your chosen AI provider. The acknowledgement is saved for your Windows profile; revised wording is shown again. Usage reporting is enabled for new reporting installations after acknowledgement and can be disabled under **Privacy & usage** without losing access to the tool. Existing opt-outs are preserved.
 
 **Upgrading from unsigned 0.16.2 or earlier:** run the signed Setup installer once before using in-app updates.
 
@@ -156,3 +166,4 @@ If readiness is unconfirmed or guards/helpers are unavailable, use **Download in
 - **Windows trust warnings:** follow [CODE_SIGNING.md](CODE_SIGNING.md). SmartScreen or company policy may still block a self-signed application; keep Windows protections enabled.
 - **Download problems:** continue using the installed version and retry later, or download Setup from the latest release. Finish active work before repair or reinstall.
 - **Issues:** [report a problem](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/issues) without customer projects, credentials, private logs or Siemens reference material. Third-party notices are included under `legal/` in the installed application.
+
