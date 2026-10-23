@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-Version **0.19.3** adds local presentation preferences, usage reporting controls and a first-launch whole-tool disclaimer acknowledgement. Existing reporting opt-outs are preserved, and reporting can be disabled under **Privacy & usage** without losing tool access. Siemens SDC requests no longer use the Assistant's automatic elapsed-time deadline; **Stop** and provider limits remain. Read the [0.19.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.3).
+Version **0.19.4** improves native graphics with shaded ductwork, approved equipment and valves, white information panels and floating values. FCUs support **Detailed**, **Simplified** and **Room Automation** layouts with separate room/equipment readings and Schedule / Mode information. The update also reports configured alarm and trend enablement across application datapoints. Read the [0.19.4 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.4).
 
 The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
@@ -64,6 +64,8 @@ Request library export in the plan, then inspect the reported saved contents and
 ## Generate graphics
 
 Version **0.17.3** includes a graphics builder inside the Assistant. Choose **Generate graphics** in **Start a workflow**, select a sample prompt or describe your plant, equipment, connections and required readings in chat. The Assistant can assemble a complete native page from supported equipment symbols, pipe/duct connections, labels and grouped readout panels. Its 61 plant and PAC-meter examples provide layouts and reusable components; new scenes can have their own equipment counts and arrangement.
+
+For an FCU, request the unit style or **Room Automation**, with Detailed or Simplified information. Room Automation places the same native equipment above a grey room scene and separates room temperature, effective heating/cooling setpoints, occupancy, Schedule / Mode and equipment readings. All values are unbound. VAV, series/parallel FPB and reversible room HPU styles need further native asset and topology qualification.
 
 Review **Preview graphic**, then choose **Save .f5p…** and **Save supporting files…** to save the native graphic, preview, mapping schedules and validation report. Import the `.f5p` into ABT separately. Graphics generation uses your selected AI provider and the bundled graphics library; no ABT Openness connection is required.
 
