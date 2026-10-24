@@ -4,7 +4,7 @@ A Windows desktop assistant that uses **Siemens ABT Openness** to inspect and en
 
 [Download the latest installer](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/latest) · [Release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases) · [Disclaimer](DISCLAIMER.md)
 
-Version **0.19.4** improves native graphics with shaded ductwork, approved equipment and valves, white information panels and floating values. FCUs support **Detailed**, **Simplified** and **Room Automation** layouts with separate room/equipment readings and Schedule / Mode information. The update also reports configured alarm and trend enablement across application datapoints. Read the [0.19.4 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.4).
+Version **0.19.5** adds **GitHub Copilot** sign-in and expands Room Automation graphics for **FCU, VAV, series FPB, parallel FPB and reversible HPU**. Detailed layouts use white information panels; Simplified enlarges the equipment and room inside one outer frame. **Save all graphics** exports a conversation's graphics together, and previews keep technical notes collapsed. Read the [0.19.5 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.19.5).
 
 The installer includes the bounded cASA answer client. Original cASA documents, excerpts, diagrams and source references remain inside the private service; users and their selected connection receive derived answers. The private service, corpus, extraction tools and credentials are excluded from installers and updates. The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
 
@@ -65,9 +65,9 @@ Request library export in the plan, then inspect the reported saved contents and
 
 Version **0.17.3** includes a graphics builder inside the Assistant. Choose **Generate graphics** in **Start a workflow**, select a sample prompt or describe your plant, equipment, connections and required readings in chat. The Assistant can assemble a complete native page from supported equipment symbols, pipe/duct connections, labels and grouped readout panels. Its 61 plant and PAC-meter examples provide layouts and reusable components; new scenes can have their own equipment counts and arrangement.
 
-For an FCU, request the unit style or **Room Automation**, with Detailed or Simplified information. Room Automation places the same native equipment above a grey room scene and separates room temperature, effective heating/cooling setpoints, occupancy, Schedule / Mode and equipment readings. All values are unbound. VAV, series/parallel FPB and reversible room HPU styles need further native asset and topology qualification.
+Request **Room Automation** for FCU, VAV, series FPB, parallel FPB or reversible HPU, with Detailed or Simplified information. Native equipment sits above a grey room scene. Only room measurements and presence appear inside the room; Detailed side panels contain setpoints, occupancy mode, Schedule / Mode and other equipment information. Simplified uses one large white outer frame without information cards. Both include editable return-air artwork by default, with outside-air duct/damper artwork for applicable unit families. All values are unbound, and users must check the illustrated topology against the installation.
 
-Review **Preview graphic**, then choose **Save .f5p…** and **Save supporting files…** to save the native graphic, preview, mapping schedules and validation report. Import the `.f5p` into ABT separately. Graphics generation uses your selected AI provider and the bundled graphics library; no ABT Openness connection is required.
+Review **Preview graphic** with its zoom control. Technical notes are available under the collapsed **Preview notes** section. Choose **Save all graphics** in the conversation header to export every generated graphic from that conversation into one ZIP, with a named folder for each `.f5p`, previews, CSV/JSON mapping schedules and validation report. The individual **Save .f5p…** and **Save supporting files…** controls remain available. Import the `.f5p` files into ABT separately. Graphics generation uses your selected AI provider and the bundled graphics library; no ABT Openness connection is required.
 
 For a graphic based on engineering data, connect to ABT and select **Graphic from ABT plant**. Name the controller and plant, for example: “Build a graphic for plant AHU1234 in controller AS5668. Inspect its points, suggest the equipment and readings, and identify any missing information.” The Assistant inspects the exact selection through existing read-only tools and can retain selected engineering-object identities in the mapping schedule. Ambiguous, incomplete or stale evidence requires resolution; point names alone do not prove physical topology.
 
@@ -110,6 +110,7 @@ The installer includes .NET 10, the graphics builder and its runtime graphics li
 | Provider | What you need |
 |---|---|
 | ChatGPT / Codex | ChatGPT sign-in and a separately installed, qualified Codex runtime; uses your plan's Codex allowance. |
+| GitHub Copilot | A permitted GitHub Copilot account and licence. Siemens users can request access and sign in with their managed work account; the matching runtime is included. |
 | Claude API | An Anthropic API key with separate API usage and billing. |
 | Gemini API | A Google API key with separate API quota or billing. |
 | Siemens SDC | A company-issued LLM Gateway API key and access to the selected model in the global/European region; subject to company allocation and policy. |
@@ -119,6 +120,8 @@ The installer includes .NET 10, the graphics builder and its runtime graphics li
 Assistant **0.19.2** supports Codex `0.163.0-alpha.10.2` and the earlier supported versions `0.162.0-alpha.17.2`, `0.160.1`, `0.160.0`, `0.154.0-alpha.6.2` and `0.153.4`. On first use, install a supported Codex runtime and sign in to ChatGPT. The Assistant retains a compatible runtime for later connections, so Codex app updates do not replace it. A confirmed unreadable encrypted sign-in cache is preserved separately so you can sign in again; other saved connections and settings are retained. Direct API providers do not require Codex or Claude Code.
 
 Use **Provider setup & billing** in the application for detailed instructions. Provider credentials, settings and conversations stay separate, with no automatic account, endpoint or model fallback.
+
+**GitHub Copilot setup.** Select **GitHub Copilot** and open its connection settings. Siemens users choose **Sign in with Siemens**, then authorize the displayed device code in their work browser. The Assistant supplies its registered public application ID; no client secret or API key is required for the normal connection. A permitted Copilot account, licence and company approval are still required. **Remember sign-in** optionally protects the saved credential for the current Windows user. Available models and reasoning choices follow that account's advertised capabilities and policies; start a new conversation before changing the GitHub model or effort.
 
 **Siemens SDC setup.** One **Siemens SDC** connection supports qualified Claude, Gemini and OpenAI models. Choose **Model provider**, then **Model** from its filtered list. The public catalogue loads automatically without an API key; **Test & connect** verifies access to that exact model and saves the connection only after success. Other gateway models remain unavailable until their ABT tool support is verified.
 
@@ -155,7 +158,7 @@ A timeout or lost reply may leave a partially completed change. Inspect the curr
 
 ## Updates
 
-Open **About & updates** to check for and download updates. **Later** keeps a downloaded update staged.
+Open **About & updates** to check for and download updates. It shows the opening disclaimer above the update controls; the full notice remains in the first-launch dialog and distribution documentation. **Later** keeps a downloaded update staged.
 
 Before choosing **Restart and Update**, disconnect the assistant from ABT, wait for all tasks, readback and cleanup to finish, and close other assistant sessions and companions normally. The updater rechecks readiness, blocks new ABT work during installation and waits for existing sessions to exit naturally. Active assistant/ABT work must finish; only an empty process blocked before startup may be stopped by the guarded updater.
 
