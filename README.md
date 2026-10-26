@@ -75,18 +75,6 @@ Generated files remain unbound. Static previews, structural validation and offli
 
 Read the [0.17.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.3).
 
-## Local reference knowledge
-
-Read-only lookup covers prepared local PDF, values-only XLSX and Programming Library Help reference packages. Results retain document editions, PDF page numbers or workbook worksheet/cell ranges, source hashes and linked topics so answers can cite their reference evidence. English, German and French can be selected explicitly.
-
-Version **0.17.3** can consult the locally prepared NGA System One BACnet object/property workbook for **PXC4, PXC5, PXC7 and DXR3 only**, citing its revision, source hash, worksheet and cells. Documented data types, limits, enum choices and access notes must be checked against the actual target version, supported operations and live project evidence. This reference does not qualify other or legacy controller families or grant additional write permissions.
-
-Documentation import, extraction and package writing belong to the owner's separate development utility. The installed Assistant has no import controls, and the utility is excluded from installers and updates. Existing knowledge packages remain in the local ABTAIAssistantData store. Siemens reference workbooks, manuals, programming archives and customer documents are not included in public downloads. Workbook formulas and macros are not executed.
-
-PDF and HTML text provide reference evidence; inspect the original documents for diagrams, images and scanned content. Documentation does not establish live controller state or make additional ABT operations available. Engineering approval, locks and readback remain enforced.
-
-Read the [0.17.3 release notes](https://github.com/timpendlebury/ABT-AI-Assistant-Releases/releases/tag/v0.17.3).
-
 ## Requirements
 
 - Windows x64 with permission to install a per-user application.
