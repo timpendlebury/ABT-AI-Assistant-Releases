@@ -25,7 +25,15 @@ CFC static checks do not simulate controller operation. Generated graphics are u
 
 ## AI connections
 
-Choose **ChatGPT / Codex**, **GitHub Copilot**, **Claude API**, **Gemini API**, **Siemens SDC** or **OpenClaw**, using your authorised account or gateway. Codex requires a separately installed supported runtime. **Claude Code** is available as a separate app.
+| Provider | What you need |
+|---|---|
+| **ChatGPT / Codex** | ChatGPT sign-in and a separately installed supported Codex runtime; uses your plan's Codex allowance. |
+| **GitHub Copilot** | Licensed Copilot account with permitted access; Siemens managed work sign-in supported. Matching runtime included. |
+| **Claude API** | Anthropic API key; separate API usage and billing. |
+| **Gemini API** | Google Gemini API key; separate API quota or billing. |
+| **Siemens SDC** | Company-issued LLM Gateway API key and access to the selected model, subject to company policy. |
+| **OpenClaw** | Supported local runtime and Gateway, token or password, and model access configured in OpenClaw. |
+| **Claude Code (separate app)** | Official installed client, using its own sign-in and conversation. |
 
 See **Provider setup & billing** in the application for setup and access requirements. You can also connect a compatible AI client through the local MCP integration.
 
