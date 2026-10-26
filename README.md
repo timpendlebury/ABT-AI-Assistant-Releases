@@ -8,12 +8,6 @@ Version **0.20.2** improves settings and saved projects and chats. Privacy & usa
 
 Protected saved conversations, project workspaces and provider-scoped conversation references remain available. Authorise a connection in a project's Files tab to include relevant file excerpts automatically in its engineering chats. Model and effort changes keep the same saved chat, rebuilding the model session from bounded recent history where needed. Changing AI provider starts a separate conversation. Settings brings together connections, Light/Dark appearance, Enter-key behaviour, storage, privacy and updates.
 
-GitHub Copilot sign-in and Room Automation graphics for **FCU, VAV, series FPB, parallel FPB and reversible HPU** remain available. Detailed layouts use white information panels; Simplified enlarges the equipment and room inside one outer frame. **Save all graphics** exports a conversation's graphics together, and previews keep technical notes collapsed.
-
-The reviewed 184-file graphics library remains included and accessible under its existing entitlement notices.
-
-Reporting can be disabled under **Privacy & usage** without losing tool access. The current analytics service plan provides one year of query history; that window does not guarantee automatic deletion of older received events. Disabling reporting cancels pending delivery and removes unsent statistics, without deleting reports already received by PostHog.
-
 > ABT AI Assistant is an independent, unofficial third-party tool developed in a personal capacity. It is not an official Siemens product and is not affiliated with, sponsored, endorsed or supported by Siemens AG or any other vendor or manufacturer. To the extent permitted by applicable law, the software is provided "as is", without warranty of any kind, express or implied. No ongoing support, updates or maintenance are promised. Use of the tool is at the user's own risk. Users should maintain appropriate project backups and independently review and validate all outputs and changes before applying them.
 >
 > Usage statistics apply only to releases that include usage reporting. On first launch of such a release, acknowledging this disclaimer enables reporting unless an existing reporting preference or administrator policy disables it. You can disable reporting at any time under Privacy & usage without losing access to the tool.
