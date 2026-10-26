@@ -16,7 +16,7 @@ A Windows desktop assistant for **Siemens ABT Site**, using the local **ABT Open
 | **CFC programming** | Inspect and trace logic, compose supported snippets, run static checks and prepare supported library exports. |
 | **Bulk changes** | Prepare naming, description and supported configuration updates across selected objects. |
 | **Excel workflows** | Review points schedules offline, prepare physical-I/O imports and compare workbooks with ABT to resolve supported differences. |
-| **Native graphics** | Generate plant graphics, Room Automation and controller overviews; preview and export editable `.f5p` files with mapping schedules. |
+| **Generate graphics** | Generate plant graphics, Room Automation and controller overviews; preview and export editable `.f5p` files with mapping schedules. |
 | **Engineering guidance** | Search available local ABT and Programming Library Help for documented guidance. |
 
 **Project changes require your explicit approval**, state checks and verification of the result. Available operations depend on your ABT version and configuration. Project creation, controller downloads and commissioning remain in ABT Site.
